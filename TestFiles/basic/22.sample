@@ -1,0 +1,12 @@
+main(){
+  int x;
+  int sum = 0;
+
+  x = 1;
+  while (x <= 10){
+    sum = sum + x;
+    x = x + 1;
+  }
+  write(x);
+  write(sum);
+}

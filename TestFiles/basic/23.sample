@@ -1,0 +1,7 @@
+void f();
+
+main(){
+  f();
+}	
+
+void f(){}

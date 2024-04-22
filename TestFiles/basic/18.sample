@@ -1,0 +1,8 @@
+int x = 1;
+
+main() {
+       int y = 2;
+       write(x);
+       x = x + y;
+       write(x);
+       }

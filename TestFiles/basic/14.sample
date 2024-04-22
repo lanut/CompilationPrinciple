@@ -1,0 +1,12 @@
+main(){
+  int a = 6;
+  int b = 9;
+  write(a);
+  write(b);
+  int c = a + b * a - b / 3;
+  write(c);
+  int d = a * b * b - c;
+  int e = a + b - c + d;
+  write(d);
+  write(e);
+}

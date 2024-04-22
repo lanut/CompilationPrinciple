@@ -1,0 +1,9 @@
+main(){
+  int x;
+  int sum = 0;
+  for (x = 1; x <= 10; x=x+1) {
+    sum = sum + x;
+  }
+  write(x);
+  write(sum);
+}

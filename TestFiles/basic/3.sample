@@ -1,0 +1,6 @@
+main() {
+       int x = 2, y;
+       const int z = 3;
+       write(x);
+       write(z);
+}	

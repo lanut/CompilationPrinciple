@@ -1,0 +1,14 @@
+void fib(int);
+
+main(){
+  fib(5);
+}
+
+void fib(int x){
+  if (x <= 0) {
+    write(0);
+  } else {
+    fib(x-1);
+    write(x);
+  }
+}

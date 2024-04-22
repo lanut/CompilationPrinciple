@@ -1,0 +1,8 @@
+main(){
+    int a = - 6;
+    int b = 9;
+    int c = a + -4 * a - b / 3;
+    write(a);
+    write(b);
+    write(c);
+    }

@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="alibaba.fastjson2.kotlin" type="repository">
+    <properties maven-id="com.alibaba.fastjson2:fastjson2-kotlin:2.0.48" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/fastjson2-kotlin-2.0.48.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/fastjson2-2.0.48.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/lib/fastjson2-kotlin-2.0.48-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/fastjson2-2.0.48-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/fastjson2-kotlin-2.0.48-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/fastjson2-2.0.48-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

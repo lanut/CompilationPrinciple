@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/TestFiles/input/test1.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/TestFiles/input/test2.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/TestFiles/input/test3.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/TestFiles/input/test4.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/TestFiles/input/test4_1.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/TestFiles/input/test5.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/TestFiles/input/test6.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/TestFiles/input/test7.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/TestFiles/input/test8.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/TestFiles/input/test9.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/TestFiles/input/test9_aa.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/Main.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/文件测试.kt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/untitled/src/main/kotlin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/untitled/src/main/resources" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

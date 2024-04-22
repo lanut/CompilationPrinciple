@@ -1,0 +1,12 @@
+int abs(int);
+
+main(){
+  int x = -10;
+  int y = abs(x);
+  write(y);
+}
+
+int abs(int x) {
+  if (x <= 0) return -x;
+  return x;
+}

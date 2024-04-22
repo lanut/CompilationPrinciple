@@ -1,0 +1,12 @@
+main() {
+       int x = 2;
+       int y = 3;
+       int a = x && y;
+       int b = x && 0;
+       int c = x || y;
+       int d = x || 0;
+       write(a);
+       write(b);
+       write(c);
+       write(d);
+       }	
