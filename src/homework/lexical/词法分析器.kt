@@ -1,7 +1,5 @@
 package homework.lexical
 
-import com.alibaba.fastjson2.into
-import com.alibaba.fastjson2.parseObject
 import com.alibaba.fastjson2.toJSONString
 import homework.lexical.entity.Category.*
 import homework.lexical.entity.SampleWords
@@ -23,9 +21,10 @@ import homework.lexical.utils.removeMultipleComments
  */
 @JvmOverloads
 fun codeStringToTokenList(input: String, isDebug: Boolean = false): List<Token> {
+    val tokenStore = TokenStore()
     // 初始化结果列表
-    TokenStore.init()
-    val result = TokenStore.tokens
+    tokenStore.init()
+    val tokens = tokenStore.tokens
     // 删除多行注释
     val changedInput = removeMultipleComments(input)
     // 将字符串按行分隔
@@ -46,7 +45,7 @@ fun codeStringToTokenList(input: String, isDebug: Boolean = false): List<Token> 
 
         // 如果该行是注释则跳过
         if (lineStr.startsWith("//")) {
-            result.add(Token(COMMENT, lineStr, lineIndex))
+            tokens.add(Token(COMMENT, lineStr, lineIndex))
             return@lineForEach
         }
         // 创建一个迭代器用于遍历每一行的字符
@@ -56,38 +55,38 @@ fun codeStringToTokenList(input: String, isDebug: Boolean = false): List<Token> 
             val char = iterator.next() // 获取当前字符
             iterator.back()
             when {
-                char.isLetterOr_() -> idnRecognize(iterator, line) // 进入标识符或保留字识别
-                char.isDigit() -> constantRecognizer(iterator, line) // 进入常量识别
+                char.isLetterOr_() -> idnRecognize(iterator, line, tokens) // 进入标识符或保留字识别
+                char.isDigit() -> constantRecognizer(iterator, line, tokens) // 进入常量识别
                 char.toString() in SampleWords.delimiters -> { // 分隔符识别
-                    result.add(Token(DELIMITER, char.toString(), line))
+                    tokens.add(Token(DELIMITER, char.toString(), line))
                     iterator.next()
                 }
 
                 char == '"' -> {// 进入字符串识别
-                    stringRecognizer(iterator, line)
+                    stringRecognizer(iterator, line, tokens)
                 }
 
                 char == '\'' -> {// 进入字符识别
-                    charRecognizer(iterator, line)
+                    charRecognizer(iterator, line, tokens)
                 }
 
-                char.toString() in SampleWords.operators || char == '&' -> operatorRecognizer(iterator, line) // 进入运算符识别
+                char.toString() in SampleWords.operators || char == '&' -> operatorRecognizer(iterator, line, tokens) // 进入运算符识别
                 char.isBlankOrNewLine() -> { // 如果是空白字符
                     iterator.next()
                     continue@charForeach
                 }
 
                 else -> { // 如果是其他字符
-                    errorRecognize(iterator, line)
+                    errorRecognize(iterator, line, tokens)
                 }
             }
-            if(!isDebug && result.last().category == ERROR) {
-                val errorToken = result.last()
+            if(!isDebug && tokens.last().category == ERROR) {
+                val errorToken = tokens.last()
                 throw Exception("Token检测错误：${errorToken.toLogStr()}")
             }
         }
     }
-    return result
+    return tokens
 }
 
 fun String.codeStrToTokenList(): List<Token> {
@@ -126,9 +125,8 @@ val testStr2 = """
     """.trimIndent()
 
 fun main() {
-    TokenStore.init()
     println("str2测试")
-    var tokens :List<Token> = codeStringToTokenList(testStr2)
+    val tokens :List<Token> = codeStringToTokenList(testStr2)
     tokens.forEach {
         println(it.toLogStr())
     }

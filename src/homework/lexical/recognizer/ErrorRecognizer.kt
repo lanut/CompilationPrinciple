@@ -3,12 +3,11 @@ package homework.lexical.recognizer
 import homework.lexical.entity.Category.ERROR
 import homework.lexical.entity.SampleWords
 import homework.lexical.entity.Token
-import homework.lexical.entity.TokenStore.tokens
 import homework.lexical.utils.BackCharIterator
 import homework.lexical.utils.isBlankOrNewLine
 
 // errorRecognize 函数用于识别错误
-fun errorRecognize(charIterator: BackCharIterator, line: Int) {
+fun errorRecognize(charIterator: BackCharIterator, line: Int, tokens:MutableList<Token>) {
     // stringBuffer 用于存储识别的字符
     val stringBuffer = StringBuffer()
     var char = charIterator.next()

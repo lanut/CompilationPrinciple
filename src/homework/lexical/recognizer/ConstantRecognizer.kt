@@ -3,7 +3,6 @@ package homework.lexical.recognizer
 import homework.lexical.entity.Category
 import homework.lexical.entity.SampleWords
 import homework.lexical.entity.Token
-import homework.lexical.entity.TokenStore.tokens
 import homework.lexical.recognizer.ConstantRecognizer.State.*
 import homework.lexical.utils.BackCharIterator
 import homework.lexical.utils.isBlankOrNewLine
@@ -27,7 +26,7 @@ class ConstantRecognizer {
  * @param charIterator 字符迭代器
  * @param line 行号
  */
-fun constantRecognizer(charIterator: BackCharIterator, line: Int) {
+fun constantRecognizer(charIterator: BackCharIterator, line: Int, tokens:MutableList<Token>) {
     val constantRecognizer = ConstantRecognizer()
     while (charIterator.hasNext() && constantRecognizer.state != ERROR && constantRecognizer.state != End) {
         val char = charIterator.nextChar()

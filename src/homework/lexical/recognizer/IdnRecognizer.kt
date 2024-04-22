@@ -3,7 +3,6 @@ package homework.lexical.recognizer
 import homework.lexical.entity.Category
 import homework.lexical.entity.SampleWords
 import homework.lexical.entity.Token
-import homework.lexical.entity.TokenStore.tokens
 import homework.lexical.recognizer.IdnRecognizer.State.*
 import homework.lexical.utils.BackCharIterator
 import homework.lexical.utils.isLetterOrDigitOr_
@@ -23,7 +22,7 @@ class IdnRecognizer {
 }
 
 // idnRecognize 函数用于识别标识符
-fun idnRecognize(charIterator: BackCharIterator, line: Int) {
+fun idnRecognize(charIterator: BackCharIterator, line: Int, tokens:MutableList<Token>) {
     val idnRecognizer = IdnRecognizer()
     // 循环读取字符，直到识别出错误或者读取完所有字符
     while (charIterator.hasNext() && idnRecognizer.state != ERROR) {

@@ -3,11 +3,10 @@ package homework.lexical.recognizer
 import homework.lexical.entity.Category.*
 import homework.lexical.entity.SampleWords
 import homework.lexical.entity.Token
-import homework.lexical.entity.TokenStore.tokens
 import homework.lexical.utils.BackCharIterator
 
 // operatorRecognizer 函数用于识别运算符
-fun operatorRecognizer(charIterator: BackCharIterator, line: Int) {
+fun operatorRecognizer(charIterator: BackCharIterator, line: Int, tokens:MutableList<Token>) {
     // 读取字符
     val char = charIterator.nextChar()
     // stringBuffer 用于存储识别的字符

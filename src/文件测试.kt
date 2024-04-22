@@ -60,5 +60,9 @@ fun main() {
             File("./TestFiles/basic/${file.nameWithoutExtension}_Expression.txt").writeText(expressionStore.toString())
             outputSVGFile(umlTree, "./TestFiles/basic/${file.nameWithoutExtension}.svg")
         }
+        if (errorList.isNotEmpty()) {
+            println("\n总计出现${errorList.size}个错误文件")
+            errorList.forEach(::println)
+        }
     }
 }

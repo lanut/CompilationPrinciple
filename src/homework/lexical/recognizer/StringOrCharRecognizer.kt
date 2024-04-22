@@ -2,12 +2,11 @@ package homework.lexical.recognizer
 
 import homework.lexical.entity.Category
 import homework.lexical.entity.Token
-import homework.lexical.entity.TokenStore.tokens
 import homework.lexical.utils.BackCharIterator
 import homework.lexical.utils.isBlankOrNewLine
 
 // 用于识别字符串
-fun stringRecognizer(charIterator: BackCharIterator, line: Int) {
+fun stringRecognizer(charIterator: BackCharIterator, line: Int, tokens:MutableList<Token>) {
     val stringBuffer = StringBuffer()
     var char = charIterator.nextChar()
     stringBuffer.append(char) // 合并第一个双引号
@@ -35,7 +34,7 @@ fun stringRecognizer(charIterator: BackCharIterator, line: Int) {
 }
 
 // 用于识别字符
-fun charRecognizer(charIterator: BackCharIterator, line: Int) {
+fun charRecognizer(charIterator: BackCharIterator, line: Int, tokens:MutableList<Token>) {
     val stringBuffer = StringBuffer()
     var char = charIterator.nextChar()
     stringBuffer.append(char) // 合并第一个单引号
