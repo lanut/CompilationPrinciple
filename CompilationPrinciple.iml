@@ -7,6 +7,11 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/testResources" type="java-test-resource" />
+      <excludeFolder url="file://$MODULE_DIR$/TestFiles/TempFiles" />
+      <excludeFolder url="file://$MODULE_DIR$/TestFiles/input" />
+      <excludeFolder url="file://$MODULE_DIR$/TestFiles/output" />
+      <excludeFolder url="file://$MODULE_DIR$/src/homework/grammatical/note" />
+      <excludeFolder url="file://$MODULE_DIR$/src/homework/lexical/思维导图" />
       <excludeFolder url="file://$MODULE_DIR$/.idea/copilot/chatSessions" />
     </content>
     <orderEntry type="inheritedJdk" />
@@ -14,5 +19,6 @@
     <orderEntry type="library" name="KotlinJavaRuntime" level="project" />
     <orderEntry type="library" name="alibaba.fastjson2.kotlin" level="project" />
     <orderEntry type="library" name="net.sourceforge.plantuml" level="project" />
+    <orderEntry type="library" name="jetbrains.kotlinx.coroutines.core" level="project" />
   </component>
 </module>

@@ -1,0 +1,3 @@
+main() {
+  int a = 012345678 // Error Num
+}

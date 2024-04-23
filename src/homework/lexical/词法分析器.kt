@@ -82,7 +82,7 @@ fun codeStringToTokenList(input: String, isDebug: Boolean = false): List<Token> 
             }
             if(!isDebug && tokens.last().category == ERROR) {
                 val errorToken = tokens.last()
-                throw Exception("Token检测错误：${errorToken.toLogStr()}")
+                throw Exception("Token检测错误：${errorToken}")
             }
         }
     }

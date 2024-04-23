@@ -26,7 +26,7 @@ fun 语法分析器(tokenJsStr: String): ExpressionStore {
     try {
         递归分析法.程序(backIterator)
     } catch (e: Exception) {
-        println(递归分析法.expressionStore)
+        // println(递归分析法.expressionStore)
         throw e
     }
     return 递归分析法.expressionStore
