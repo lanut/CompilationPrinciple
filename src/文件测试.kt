@@ -92,6 +92,7 @@ fun multithreadedOutput(path: Path) {
     // 创建一个Channel，用于在生产者和消费者之间传递File对象
     val fileChannel = Channel<File>()
     val directory = File(path.toUri())
+    if (!directory.isDirectory) throw Exception("此不是合法的文件夹")
     val errorList = mutableListOf<String>()
 
     // 生产者协程
