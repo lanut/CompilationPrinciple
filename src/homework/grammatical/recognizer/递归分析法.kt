@@ -178,7 +178,7 @@ class 递归分析法 {
         if (match(backTokenIterator, ",")) {
             expressionStore.addNode(
                 Node("函数定义形参列表尾"),
-                Node(","),
+                Node(",", true),
                 Node("数据类型"),
                 Node("标识符"),
                 Node("函数定义形参列表尾")
@@ -310,7 +310,7 @@ class 递归分析法 {
     // <变量表尾> ::= , <变量式> <变量表尾> | ε
     tailrec fun 变量表尾(backTokenIterator: BackTokenIterator) {
         if (match(backTokenIterator, ",")) {
-            expressionStore.addNode(Node("变量表尾"), Node(","), Node("变量式"), Node("变量表尾"))
+            expressionStore.addNode(Node("变量表尾"), Node(",", true), Node("变量式"), Node("变量表尾"))
             变量式(backTokenIterator)
             变量表尾(backTokenIterator)
         } else {
