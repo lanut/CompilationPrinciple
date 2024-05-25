@@ -1,8 +1,8 @@
 // 输入数字num，判断是不是素数
 // 测试函数调用，基本分支，循环结构
-int isPrime(int x);
+int isPrime(int);
 
-int main(void)
+main()
 {
     int num;
     int res;
@@ -16,7 +16,6 @@ int main(void)
         res = 0;
     }
     write(res);
-    return 0;
 }
 int isPrime(int x)
 {

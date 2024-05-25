@@ -10,7 +10,7 @@ main()
 
 void invert(int m) {
   int n;
-  if(m>0&&m<10)
+  if(m > 0 && m < 10)
     {
 
 	write(m);

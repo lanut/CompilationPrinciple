@@ -1,5 +1,5 @@
 //多重for测试，打印三角形
-void main()
+main()
 {
 	int n=0,j=0,i=0;
 	n = read();
@@ -11,7 +11,7 @@ void main()
 		}
 		for(j=0;j<i+1;j=j+1)
 		{
-			write('* ');
+			write("* ");
 		}
 		write('\n');
 	}

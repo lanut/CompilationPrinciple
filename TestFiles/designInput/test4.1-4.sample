@@ -2,7 +2,7 @@
 // 测试函数的递归调用
 int gcd(int, int);
 
-int main(void)
+main()
 {
     int a;
     int b;
