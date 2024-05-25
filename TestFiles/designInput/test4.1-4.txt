@@ -1,0 +1,27 @@
+// 输入a和b，输出最大公约数
+// 测试函数的递归调用
+int gcd(int, int);
+
+int main(void)
+{
+    int a;
+    int b;
+    int c;
+    input(a);
+    input(b);
+    c = gcd(a, b);
+    output(c);
+    return 0;
+}
+int gcd(int x, int y)
+{
+    if(y == 0)
+    {
+        return x;
+    }
+    else
+    {
+        return gcd(y, x-x/y*y);
+    }
+    return 0;
+}

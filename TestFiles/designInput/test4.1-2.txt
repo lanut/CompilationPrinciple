@@ -1,0 +1,22 @@
+//单递归测试2：求n内所有数的和
+int seq(int);
+main()
+{
+   int n;
+   n=read();
+   write(seq(n));
+}
+
+int seq(int m) {
+  int i,fa;
+  i=0;
+  if(m<=1)
+    {
+	fa=1;
+     }
+   else{
+         fa=m+seq(m-1);
+     }
+   return fa;
+}
+

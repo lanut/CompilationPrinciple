@@ -1,0 +1,21 @@
+// 双递归函数调用测试2：计算组合数
+int comp(int,int);
+main()
+{
+   int m,k,result;
+   m = read();
+   k = read();
+   result = comp(m,k);
+   write(result);
+}
+
+int comp(int n,int i) {
+int a, b; 
+if(n == i || i == 0)
+	{
+		return 1;
+	}
+	 a = comp(n-1,i) ;
+                 b = comp(n-1,i-1);
+	return a + b ; 
+}

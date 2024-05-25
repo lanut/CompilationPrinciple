@@ -1,0 +1,27 @@
+//双重for嵌套，输入一个数n,输出前n列乘法表
+int chengfabiao(int n)
+{
+  int i,j,s;
+  for(i=1;i<=n;i=i+1)
+        {
+         for(j=1;j<=i;j=j+1)
+        {
+             s=i*j;
+           write(j);write("*");write(i);write("=");write(s );write(" ");
+       }
+            write("换行");
+    }
+  return 0;
+}
+
+
+
+
+main()
+{
+   int n;
+   n=read();
+   chengfabiao(n);
+}
+
+

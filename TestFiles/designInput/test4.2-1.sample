@@ -1,0 +1,23 @@
+//双递归函数调用测试2：求菲波拉契数列
+//结果：1  1  2  3  5  8  13   21   34...
+int seq(int);
+main()
+{
+   int n;
+   n=read();
+   write(seq(n));
+}
+
+int seq(int m) 
+{
+      int s,a,b;
+      if(m<=2)
+          s=1;
+      else{
+           a=seq(m-1);//这种写法可以正确运行
+           b=seq(m-2);
+           s=a+b;
+      }
+      return s;
+
+}

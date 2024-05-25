@@ -1,0 +1,26 @@
+//单递归测试3：以递归来反序输出给定整数的每一位
+//由于是int类型，输入的数据必须小于65535
+void invert(int);
+main()
+{
+   int k;
+   k=read();
+   invert(k);
+}
+
+void invert(int m) {
+  int n;
+  if(m>0&&m<10)
+    {
+
+	write(m);
+     }
+   else{
+         n=m%10;
+         write(n);
+         n=m/10;
+         invert(n);
+     }
+   return 0;
+}
+

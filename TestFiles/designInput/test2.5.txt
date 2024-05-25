@@ -1,0 +1,23 @@
+//测试for嵌套，break
+//求素数
+void main()
+{
+	int n=0;
+	int i=0;
+	int j=0;
+	n = read();
+	write('小于');
+	write(n);
+	write('的素数有：');
+	write('\n');
+	for(i=2;i<n;i=i+1)
+	{
+		for(j=2;j<i;j=j+1)
+		{
+			if(i%j==0)
+			{break;}
+		}
+		if(j==i)
+		{write(i);write('\n');}
+	}
+}
