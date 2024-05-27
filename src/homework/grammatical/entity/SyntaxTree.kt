@@ -303,17 +303,19 @@ data class SyntaxTree(
                         }
                     }
                 }
-                it.name == "语句表" && it.parent?.name == "复合语句" -> {
-                    if (it.children.size == 1 && it.children[0].name == "ε") {
+
+                it.name == "复合语句" -> {
+                    var 语句表 = it.children[2]
+                    // 如果复合语句下的语句表只有一个空节点，跳过
+                    if (语句表.children.size == 1 && 语句表.children[0].name == "ε") {
                         return@forEach
                     }
-                    nodesToDelete.add(Pair(it, it.children[1]))
-                    it.children[1].forEach { childNode ->
-                        if (childNode.name == "语句表" &&
-                            childNode.children.size == 2 &&
-                            childNode.parent?.name == "语句表") {
-                            nodesToAdd.add(Pair(it, childNode.children[0]))
-                        }
+                    var 子语句表 = 语句表.children.last()
+                    nodesToDelete.add(Pair(语句表, 子语句表))
+                    while (子语句表.children.size == 2) {
+                        val 语句 = 子语句表.children[0]
+                        nodesToAdd.add(Pair(语句表, 语句))
+                        子语句表 = 子语句表.children[1]
                     }
                 }
 
