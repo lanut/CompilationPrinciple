@@ -156,14 +156,16 @@ class QuaternionGeneration {
         val function = Function(functionName, returnType)
         functionList.add(function)
         val 函数声明形参列表Table = mutableListOf<Node>()
+        if (node.children[3].children[0].name == "ε") return
         node.forEach {
             if (it.name == "函数声明形参列表") {
                 函数声明形参列表Table.add(it)
             }
         }
+        // if (函数声明形参列表Table.children[0])
         函数声明形参列表Table.forEach { 函数声明形参列表 ->
             val parameterList = mutableListOf<Pair<String, String>>()
-            val type = when (node.children[0].children[0].name) {
+            val type = when (函数声明形参列表.children[0].children[0].name) {
                 "int" -> INT
                 "char" -> CHAR
                 "float" -> FLOAT
