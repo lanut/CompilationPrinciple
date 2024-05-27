@@ -128,8 +128,6 @@ int f(int n) {
     println(umlTree)
     println()
     println("四元式：$customTest")
-    val infiniteSequence = generateSequence(1) { it + 1 }
-    val index = infiniteSequence.iterator()
     outputSVGFile(umlTree, "自定义测试.svg")
     val quaternionGeneration = QuaternionGeneration()
     quaternionGeneration.程序(syntaxTree.root) // TODO 此处为测试的入口
