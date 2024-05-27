@@ -44,11 +44,11 @@ class ExpressionStore {
         return tree
     }
 */
-    fun toTree():SyntaxTree = this.nodes.toTree()
+    fun toTree(name: String = "default Name"):SyntaxTree = this.nodes.toTree(name)
 }
 
-fun List<NodeExpression>.toTree():SyntaxTree{
-    val tree = SyntaxTree(this[0].originNode.clone())
+fun List<NodeExpression>.toTree(name: String):SyntaxTree{
+    val tree = SyntaxTree(this[0].originNode.clone(), name)
     var i = 0
     tree.forEach {node ->
         if (i == this.size) return@forEach
