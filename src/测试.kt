@@ -1,5 +1,3 @@
-package homework.quaternionTranslators
-
 import com.alibaba.fastjson2.toJSONString
 import homework.grammatical.recognizer.递归分析法
 import homework.grammatical.utils.backIterator
@@ -7,6 +5,7 @@ import homework.grammatical.utils.jsonArrayToTokenList
 import homework.grammatical.utils.outputSVGFile
 import homework.grammatical.utils.toUmlTree
 import homework.lexical.codeStringToTokenList
+import homework.quaternionTranslators.QuaternionGeneration
 
 
 val testExcp = "x = x+6/5>0 || 2 && 0 * (2 + 3 + 5) * 2 * 3 * 3 * 3 * fun(x, 3 + y, 2)"
@@ -88,34 +87,14 @@ fun testExcp(excp:String) {
 
 fun customTest() {
     val customTest = """
-// 三递归函数调用测试3：花式上楼梯，比如已知总共有15级台阶
-//一个人从地面开始可以一次上一级台阶，也可以一次上两级台阶
-//最多可以一次上三级台阶，请问，上到15级有多少中上楼梯的方法
-//程序可以使用倒推的方法来写
-//结果：1，2，4，7，13，24，44，81，149......
-int f(int);
-main()
-{
-   int m;
-   m = read();
-   write(f(m));
+//函数调用，空函数
+void f();
 
-}
+main(){
+  f();
+}	
+void f(){}
 
-int f(int n) {
-   int a;
-   if(n==1) {
-		return 1;
-	}
-   else if(n==2) {
-		return 2;
-	}
-   else if(n==3) {
-		return 4;
-	}
-    a = f(n - 1)+ f(n - 2)+ f(n - 3);
-    return a ;
- }
 """.trimIndent()
     val tokenJsStr = codeStringToTokenList(customTest).toJSONString()
     val tokenList = tokenJsStr.jsonArrayToTokenList()
@@ -126,6 +105,7 @@ int f(int n) {
     val syntaxTree = expressionStore.toTree().apply { tidy() }
     val umlTree = syntaxTree.toUmlTree()
     println(umlTree)
+    outputSVGFile(umlTree, "自定义测试.svg")
     println()
     println("四元式：$customTest")
     outputSVGFile(umlTree, "自定义测试.svg")
