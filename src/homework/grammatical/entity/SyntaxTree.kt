@@ -159,7 +159,8 @@ data class Node(
  * @param root 根节点
  */
 data class SyntaxTree(
-    val root: Node
+    val root: Node,
+    val name: String
 ) {
     /**
      * 添加节点到根节点
@@ -305,7 +306,7 @@ data class SyntaxTree(
                 }
 
                 it.name == "复合语句" -> {
-                    var 语句表 = it.children[2]
+                    val 语句表 = it.children[2]
                     // 如果复合语句下的语句表只有一个空节点，跳过
                     if (语句表.children.size == 1 && 语句表.children[0].name == "ε") {
                         return@forEach
