@@ -32,16 +32,11 @@ class 递归分析法 {
 
     // <总全局声明> ::= <全局声明> <总全局声明> | ε
     tailrec fun 总全局声明(backTokenIterator: BackTokenIterator) {
-        if (match(backTokenIterator, "const") || match(
-                backTokenIterator,
-                "int"
-            ) || match(
-                backTokenIterator,
-                "float"
-            ) || match(backTokenIterator, "char") || match(
-                backTokenIterator,
-                "void"
-            )
+        if (match(backTokenIterator, "const") ||
+            match(backTokenIterator, "int") ||
+            match(backTokenIterator, "float") ||
+            match(backTokenIterator, "char") ||
+            match(backTokenIterator, "void")
         ) {
             backTokenIterator.back()
             expressionStore.addNode(Node("总全局声明"), Node("全局声明"), Node("总全局声明"))
@@ -93,7 +88,7 @@ class 递归分析法 {
     }
 
     // <函数定义> ::= <函数类型> <标识符> ( <函数定义形参列表> ) <复合语句>
-    private fun 函数定义(backTokenIterator: BackTokenIterator) {
+    fun 函数定义(backTokenIterator: BackTokenIterator) {
         expressionStore.addNode(
             Node("函数定义"),
             Node("函数类型"),
@@ -341,7 +336,7 @@ class 递归分析法 {
     }
 
     // <函数声明> ::= <函数类型> <标识符> ( <函数声明形参列表> ) ;
-    private fun 函数声明(backTokenIterator: BackTokenIterator) {
+    fun 函数声明(backTokenIterator: BackTokenIterator) {
         expressionStore.addNode(
             Node("函数声明"),
             Node("函数类型"),
@@ -392,7 +387,7 @@ class 递归分析法 {
     // <函数声明形参列表尾> ::= , <数据类型> <函数声明形参列表尾> | ε
     private tailrec fun 函数声明形参列表尾(backTokenIterator: BackTokenIterator) {
         if (match(backTokenIterator, ",")) {
-            expressionStore.addNode(Node("函数声明形参列表尾"), Node(","), Node("数据类型"), Node("函数声明形参列表尾"))
+            expressionStore.addNode(Node("函数声明形参列表尾"), Node(",", true), Node("数据类型"), Node("函数声明形参列表尾"))
             数据类型(backTokenIterator)
             函数声明形参列表尾(backTokenIterator)
         } else {
@@ -979,7 +974,7 @@ class 递归分析法 {
     // <实参列表尾> ::= ',' <表达式>  <实参列表尾> | ε
     tailrec fun 实参列表尾(backTokenIterator: BackTokenIterator) {
         if (match(backTokenIterator, ",")) {
-            expressionStore.addNode(Node("实参列表尾"), Node(","), Node("表达式"), Node("实参列表尾"))
+            expressionStore.addNode(Node("实参列表尾"), Node(",", true), Node("表达式"), Node("实参列表尾"))
             表达式(backTokenIterator)
             实参列表尾(backTokenIterator)
         } else {

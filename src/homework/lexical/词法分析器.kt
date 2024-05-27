@@ -109,19 +109,19 @@ val testStr1 = """
 
 // 另一个测试案例
 val testStr2 = """
-        int sum(int a, int b);
-        
-        main() {
-            float a = 1.9;
-            int b = 0;
-            int c = a && b;
-            int d, f
-            return;
-        }
-        
-        int sum(int a, int b) {
-            return a + b;
-        }
+//do while语句测试，求1到10的数字之和
+main(){
+  int x;
+  int sum = 0;
+
+  x = 1;
+ do {
+      sum = sum + x;
+      x = x + 1;
+     } while (x <= 10);
+  write(x);
+  write(sum);
+}
     """.trimIndent()
 
 fun main() {

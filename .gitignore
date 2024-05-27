@@ -36,6 +36,9 @@ bin/
 /TestFiles/basic/*.js
 /TestFiles/basic/*.txt
 /TestFiles/basic/*.svg
+/TestFiles/designInput/*.js
+/TestFiles/designInput/*.txt
+/TestFiles/designInput/*.svg
 /test.svg
 /TestFiles/basic/basic.zip
 /CompilationDesign/

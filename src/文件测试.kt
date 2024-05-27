@@ -14,7 +14,8 @@ import java.nio.file.Path
 import kotlin.io.path.Path
 
 fun main() {
-    val path = Path("./TestFiles/basic")
+    val path = Path("./TestFiles/designInput")
+    println(path)
     // singleThreadedOutput(path)
     multithreadedOutput(path)
 }
@@ -112,13 +113,13 @@ fun multithreadedOutput(path: Path) {
                 val sb = StringBuffer()
                 sb.appendLine(errorName)
                 sb.appendLine(e.stackTraceToString())
-                File("./TestFiles/basic/${file.nameWithoutExtension}_Error.txt").writeText(sb.toString())
+                File("$path/${file.nameWithoutExtension}_Error.txt").writeText(sb.toString())
                 return@forEach
             }
             val jsStr = tokens.filter {
                 !(it.category == Category.COMMENT || it.category == Category.ERROR)
             }.toJSONString()
-            val outputFile = File("./TestFiles/basic/${file.nameWithoutExtension}.js")
+            val outputFile = File("$path/${file.nameWithoutExtension}.js")
             outputFile.writeText(jsStr)
             fileChannel.send(outputFile)
         }
@@ -138,13 +139,13 @@ fun multithreadedOutput(path: Path) {
                 sb.appendLine(errorName)
                 sb.appendLine(e.stackTraceToString())
                 sb.appendLine()
-                File("./TestFiles/basic/${file.nameWithoutExtension}_Error.txt").writeText(sb.toString())
+                File("$path/${file.nameWithoutExtension}_Error.txt").writeText(sb.toString())
                 continue
             }
-            val syntaxTree = expressionStore.toTree()
+            val syntaxTree = expressionStore.toTree().apply { tidy() }
             val umlTree = syntaxTree.toUmlTree("${file.nameWithoutExtension} 语法树")
-            File("./TestFiles/basic/${file.nameWithoutExtension}_Expression.txt").writeText(expressionStore.toString())
-            outputSVGFile(umlTree, "./TestFiles/basic/${file.nameWithoutExtension}.svg")
+            File("$path/${file.nameWithoutExtension}_Expression.txt").writeText(expressionStore.toString())
+            outputSVGFile(umlTree, "$path/${file.nameWithoutExtension}.svg")
         }
     }
 
