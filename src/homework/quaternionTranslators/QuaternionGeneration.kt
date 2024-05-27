@@ -386,7 +386,9 @@ class QuaternionGeneration {
         // 处理函数定义形参列表
         var i = 0// 用于记录参数的位置
         node.forEach { // 修改函数的参数名
-            if (it.name == "函数定义形参列表") {
+            if (it.name == "函数定义形参列表") { // 处理函数定义形参列表
+                // 如果函数形参为空，则直接返回
+                if (it.children[0].name == "ε") return@forEach
                 val funParameter = function.parameterList[i]
                 val nodeParameterType = it.children[0].children[0].name // 从语法树中获取参数类型
                 // 判断参数类型是否一致
