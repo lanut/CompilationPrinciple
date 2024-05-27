@@ -320,6 +320,19 @@ data class SyntaxTree(
                     }
                 }
 
+                it.name == "总函数定义" -> {
+                    if (it.children.size == 1 && it.children[0].name == "ε") {
+                        return@forEach
+                    }
+                    var 子总函数定义 = it.children[1]
+                    nodesToDelete.add(Pair(it, 子总函数定义))
+                    while (子总函数定义.children.size == 2) {
+                        val 函数定义 = 子总函数定义.children[0]
+                        nodesToAdd.add(Pair(it, 函数定义))
+                        子总函数定义 = 子总函数定义.children[1]
+                    }
+                }
+
             }
         }
 
