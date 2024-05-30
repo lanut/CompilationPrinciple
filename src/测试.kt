@@ -45,6 +45,7 @@ fun main() {
     customTest()
 }
 
+// main函数测试
 fun testMain(testStr: String) {
     val tokenJsStr = codeStringToTokenList(testMain).toJSONString()
     // val tokenJsStr = codeStringToTokenList(testExcp).toJSONString()
@@ -64,6 +65,7 @@ fun testMain(testStr: String) {
 
 }
 
+// 表达式测试
 fun testExcp(excp:String) {
     val tokenJsStr = codeStringToTokenList(excp).toJSONString()
     val tokenList = tokenJsStr.jsonArrayToTokenList()
@@ -85,6 +87,7 @@ fun testExcp(excp:String) {
 }
 
 
+// 自定义测试
 fun customTest() {
     val customTest = """
 //函数调用，空函数
