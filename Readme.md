@@ -1,5 +1,7 @@
 # Sample语言的编译器设计
 
+请在下载之前，为我点一个小小的 star 吧，这对我在将来的毕业找工作有很大的帮助。 (●'◡'●)
+
 > 实现Sample语言的分析
 > 
 > 所引用到的库：`fastjson 2`, `PlantUML`, `jetbrains.kotlinx.coroutines.core`
