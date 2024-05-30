@@ -11,7 +11,7 @@ java版本：1.8及其以上。
 > [!NOTE]
 > 关于gui版可见我另一个仓库：（即将发布）
 > 
-> javaer 可以运行`Main`类，会kotlin的人可以查看 `[文件测试.kt](src%2F%CE%C4%BC%FE%B2%E2%CA%D4.kt)`
+> javaer 可以运行[`Main`类](src/Main.java)，会kotlin的人可以查看 [文件测试.kt](src/文件测试.kt)
 
 ## 生成案例
 
