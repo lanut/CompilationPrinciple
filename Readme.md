@@ -9,7 +9,7 @@
 java版本：1.8及其以上。
 
 > [!NOTE]
-> 关于gui版可见我另一个仓库：（即将发布）
+> 关于gui版可见我另一个仓库：[编译原理课程设计（GUI版）](https://github.com/lanut/CompilationUIDesign)
 > 
 > javaer 可以运行[`Main`类](src/Main.java)，会kotlin的人可以查看 [文件测试.kt](src/文件测试.kt)
 
