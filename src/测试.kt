@@ -92,6 +92,9 @@ void f();
 
 main(){
   f();
+  write('\n');
+  write('\t');
+  write("aaaaaaa");
 }	
 void f(){}
 

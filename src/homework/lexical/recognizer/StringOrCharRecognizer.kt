@@ -29,8 +29,7 @@ fun stringRecognizer(charIterator: BackCharIterator, line: Int, tokens:MutableLi
         tokens.add(Token(Category.ERROR, string, line))
         return
     }
-    string.removeSuffix("\"").removePrefix("\"")
-    tokens.add(Token(Category.STRING, string.removePrefix("\"").removeSuffix("\""), line))
+    tokens.add(Token(Category.STRING, string, line))
 }
 
 // 用于识别字符
@@ -62,7 +61,7 @@ fun charRecognizer(charIterator: BackCharIterator, line: Int, tokens:MutableList
     }
     val string = stringBuffer.toString()
     if (string.endsWith("'")) {
-        tokens.add(Token(Category.CHAR, string.removePrefix("\'").removeSuffix("\'"), line))
+        tokens.add(Token(Category.CHAR, string, line))
     } else {
         // 直到遍历完或遍历到空白字符
         while (charIterator.hasNext() && !char.isBlankOrNewLine() && char != '\'') {

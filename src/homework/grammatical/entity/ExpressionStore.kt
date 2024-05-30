@@ -48,13 +48,13 @@ class ExpressionStore {
 }
 
 fun List<NodeExpression>.toTree(name: String):SyntaxTree{
-    val tree = SyntaxTree(this[0].originNode.clone(), name)
-    var i = 0
+    val tree = SyntaxTree(this[0].originNode.clone(), name) // 默认名字
+    var i = 0 // 用于遍历节点
     tree.forEach {node ->
-        if (i == this.size) return@forEach
-        if (node.name == this[i].originNode.name) {
+        if (i == this.size) return@forEach // 遍历完所有节点
+        if (node.name == this[i].originNode.name) { // 如果节点名字相同
             this[i].expansionNode.forEach{ expansionNode ->
-                node.addChild(expansionNode.clone())
+                node.addChild(expansionNode.clone()) // 添加子节点
             }
             i++
         }

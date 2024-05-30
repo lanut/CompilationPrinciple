@@ -138,7 +138,7 @@ class QuaternionGeneration {
             if (variableException.children.size > 1) { // 说明变量存在初始化
                 val expression = 表达式(variableException.children[2].children[0]) // 表达式
                 qExpressionList.addAll(expression)
-                qExpressionList.add(QExpression(0, "::=", "result", "", variableName))
+                qExpressionList.add(QExpression(0, "::=", "&result", "", variableName))
             }
         }
         return qExpressionList
@@ -266,6 +266,8 @@ class QuaternionGeneration {
 
     // <while语句> ::= while ( <表达式> ) <语句>
     fun while语句(node: Node) {
+        // 循环开始标记
+        qExpressionList += QExpression(index.next(), "loopStart", "", "")
         val expression = 表达式(index, node.children[2])
         qExpressionList.addAll(expression) // 表达式
         val jmpTure = QExpression(index.next(), "jnz", "&result", "", "") // 跳转真
@@ -281,10 +283,14 @@ class QuaternionGeneration {
         val breakSign = QExpression(index.next(), "breakSign", "", "")
         qExpressionList.add(breakSign) // 添加标记，此语句将跳出循环
         jmpFalse.result = (breakSign.index + 1).toString()
+        // 循环结束标记
+        qExpressionList += QExpression(index.next(), "loopEnd", "", "")
     }
 
     // <doWhile语句> ::= do <语句> while ( <表达式> ) ;
     fun doWhile语句(node: Node) {
+        // 循环开始标记
+        qExpressionList += QExpression(index.next(), "loopStart", "", "")
         val jumpFirst = QExpression(index.next(), "j", "", "", "") // 跳转到while循环语句
         qExpressionList.add(jumpFirst)
         val expression = 表达式(index, node.children[4]) // 表达式
@@ -303,10 +309,14 @@ class QuaternionGeneration {
         val breakSign = QExpression(index.next(), "breakSign", "", "")
         qExpressionList.add(breakSign) // 添加标记，此语句将跳出循环
         jmpFalse.result = (breakSign.index + 1).toString()
+        // 循环结束标记
+        qExpressionList += QExpression(index.next(), "loopEnd", "", "")
     }
 
     // <for语句> ::= for ( <for表达式> ; <for表达式> ; <for表达式> ) <语句>
     fun for语句(node: Node) {
+        // 循环开始标记
+        qExpressionList += QExpression(index.next(), "loopStart", "", "")
         val for表达式 = node.children[2] // for表达式
         val for表达式1 = node.children[4] // for表达式
         val for表达式2 = node.children[6] // for表达式
@@ -329,24 +339,26 @@ class QuaternionGeneration {
         val breakSign = QExpression(index.next(), "breakSign", "", "")
         qExpressionList.add(breakSign) // 添加标记，此语句将跳出循环
         jmpFalse.result = (breakSign.index + 1).toString()
+        // 循环结束标记
+        qExpressionList += QExpression(index.next(), "loopEnd", "", "")
     }
 
-    // todo 需要补充一下循环开始标记，用来防止控制语句跳转到错误的位置
+
 
     // <break语句> ::= break ;
     fun break语句(node: Node) {
-        qExpressionList.add(QExpression(index.next(), "findBreakSign", "", "", "")) // 跳转
+        qExpressionList.add(QExpression(index.next(), "break", "", "", "")) // 跳转
     }
 
     // <continue语句> ::= continue ;
     fun continue语句(node: Node) {
-        qExpressionList.add(QExpression(index.next(), "findContinueSign", "", "", "")) // 跳转
+        qExpressionList.add(QExpression(index.next(), "continue", "", "", "")) // 跳转
     }
 
     // <return语句> ::= return <表达式语句>
     fun return语句(node: Node) {
         表达式语句(node.children[1]) // 表达式
-        qExpressionList.add(QExpression(index.next(), "return", "result", "", "")) // 返回
+        qExpressionList.add(QExpression(index.next(), "return", "&result", "", "")) // 返回
     }
 
 

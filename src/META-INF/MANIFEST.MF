@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Main-Class: main
+Class-Path: kotlinx-coroutines-core-1.8.0.jar kotlinx-coroutines-core-jv
+ m-1.8.0.jar annotations-23.0.0.jar kotlin-stdlib-1.9.21.jar fastjson2-k
+ otlin-2.0.48.jar fastjson2-2.0.48.jar kotlin-stdlib-jdk8-1.9.22.jar kot
+ lin-stdlib-1.9.22.jar annotations-13.0.jar kotlin-stdlib-jdk7-1.9.22.ja
+ r plantuml-1.2024.4.jar
+

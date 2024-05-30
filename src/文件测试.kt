@@ -175,7 +175,7 @@ fun multithreadedOutput(path: Path) {
             for (function in quaternionGeneration.functionList) {
                 sb.append("\n\n\n${function.name} 函数参数列表：\n")
                 sb.append(function.parameterList.joinToString("\t"))
-                sb.append("${function.name} 函数四元式：\n")
+                sb.append("\n${function.name} 函数四元式：\n")
                 sb.append(function.qExpressionList.joinToString("\n"))
             }
             outputFile.writeText(sb.toString())
